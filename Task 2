@@ -1,0 +1,87 @@
+/*
+You must implement 4 different data structures ADT: binary tree, stack and 2 freely chosen.
+  
+All data structures must have basic functions for implemented ADT. Also you should create simple application where you demonstrate how it works for e.g. if you implementing data structure Stack you can implement algorithm which is simulates simple expressions calculation: 9(((5+8)+(87))+3) => Stack sequence: push(9); push(5); push(8); push(pop+pop); push(8); push (7); push(poppop); push(pop+pop); push(3);push(pop+pop); push(poppop); writeln(pop);
+Your app output also should visible in console every step -> when you adding deleting or displaying data structure content or container.
+ 
+The functions associated with stack are:
+empty() – Returns whether the stack is empty – Time Complexity : O(1)
+size() – Returns the size of the stack – Time Complexity : O(1)
+top() – Returns a reference to the top most element of the stack – Time Complexity : O(1)
+push(g) – Adds the element ‘g’ at the top of the stack – Time Complexity : O(1)
+pop() – Deletes the top most element of the stack – Time Complexity : O(1)
+
+*/
+
+#include <iostream>
+#include <cstdlib>
+#include <>
+
+using namespace std;
+
+int container[MAX_SIZE];
+// STACK
+
+class Stack {
+int top;
+stack(){top = -1
+}
+
+// IS FULL
+
+bool isFull(){
+if(MAX_SIZE - top == 1)
+  {
+  return true;
+  }
+  else
+  {
+  return false;
+  }
+}
+
+// IS EMPTY
+
+bool isEmpty(){
+if(top == -1)
+  {
+  return true;
+  }
+  else
+  {
+  return false;
+  }
+}
+
+// PUSH
+
+void push(int x){
+ if(!isFull()){
+   top++;
+   container[top] = x;
+   }
+   else
+   {
+   cout << "\nStack is full\n";
+   }
+ }
+
+void print(){ cout << "------------------------------------" << endl;
+
+for(int i = 0; i <= top; i++)
+{
+if(top == i)
+  {
+  cout << container[i] << ".";
+  }
+  else
+  {
+  cout << container[i] << ",";
+  }
+}
+
+cout << "------------------------------------" << endl;
+
+}
+
+};
