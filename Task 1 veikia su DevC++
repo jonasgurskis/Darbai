@@ -1,0 +1,466 @@
+#include <stdio.h>
+#include <iostream>
+#include <windows.h>
+#include <string>
+#include <conio.h>
+#include <fstream>
+
+#define KEY_UP 72
+#define KEY_DOWN 80
+#define KEY_LEFT 75
+#define KEY_RIGHT 77
+
+using namespace std;
+
+void game();
+void score();
+void help();
+
+int main()
+{
+
+	while (true) {
+
+		HWND console = GetConsoleWindow();
+		RECT r;
+		GetWindowRect(console, &r);
+		MoveWindow(console, r.left, r.top, 610, 600, TRUE);
+
+
+		cout << "           ***********************************************\n\n";
+		cout << "                    1 - PLAY GAME.\n\n";
+//		cout << "                    2 - SCORES LIST.\n";
+		cout << "                    3 - HELP.\n";
+		cout << "                    4 - Exit.\n\n";
+		cout << " Enter your choice and press ENTER: ";
+
+		//cin >> choice;
+		/*while (!(cin >> choice))
+		{
+			cout << "Not a Number, try again: ";
+			cin.clear();
+			cin.ignore(132, '\n');
+		}*/
+
+		//choice = getch();
+
+		switch (getch())
+		{
+		case '1':
+			cout << "\n                         GAME \n\n";
+			game();
+			break;
+		case '2':
+//			cout << "\n                         SCORES LIST\n\n";
+			break;
+		case '3':
+			cout << "\n                         HELP\n\n";
+			help();
+			break;
+		case '4':
+			cout << "\n                         End of Program.\n";
+			return 0;
+		default:
+			cout << "\n                         No, wrong input my man. \n";
+			cout << "                           Choose again.\n";
+			break;
+		}
+	}
+	return (0);
+}
+void game() {
+
+	int score = 0;
+	int a = 0;
+	int b = 0;
+	int randnum;
+
+	char string[10];
+	int Kw = KEY_UP;
+	int Ka = KEY_LEFT;
+	int Ks = KEY_DOWN;
+	int Kd = KEY_RIGHT;
+
+
+	cout << "how many levels do you want to play? ";
+	while (!(cin >> b))
+	{
+		cout << "Not a Number, try again: ";
+		cin.clear();
+		cin.ignore(132, '\n');
+	}
+
+
+	do {
+		randnum = rand() % 20;
+		a++;
+		cout << "\n                      level: " << a << endl;
+		//cout << "skaicius: " << randnum << endl;
+		if (randnum == 0)
+		{
+			cout << "LEFT\n";
+			_getch();
+			//cin >> knopke;
+			//cout << knopke << endl;
+			if (_getch() == Ka)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 1)
+		{
+			cout << "UP\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Kw)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 2)
+		{
+			cout << "DOWN\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Ks)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 3)
+		{
+			cout << "RIGHT\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Kd)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 4)
+		{
+			cout << "<\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Ka)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 5)
+		{
+			cout << "^\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Kw)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 6)
+		{
+			cout << "V\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Ks)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 7)
+		{
+			cout << ">\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Kd)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 8)
+		{
+			cout << "KAIRE\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Ka)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 9)
+		{
+			cout << "VIRSUS\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Kw)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 10)
+		{
+			cout << "APACIA\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Ks)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 11)
+		{
+			cout << "DESINE\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Kd)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 12)
+		{
+			cout << "9h\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Ka)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 13)
+		{
+			cout << "12h\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Kw)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 14)
+		{
+			cout << "6h\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Ks)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 15)
+		{
+			cout << "3h\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Kd)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 16)
+		{
+			cout << "270Deg.\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Ka)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 17)
+		{
+			cout << "360Deg.\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Kw)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 18)
+		{
+			cout << "180Deg.\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Ks)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+		if (randnum == 19)
+		{
+			cout << "90Deg.\n";
+			_getch();
+			//cout << knopke << endl;
+			if (_getch() == Kd)
+			{
+				cout << "+10 tasku\n";
+				score = score + 10;
+			}
+			else
+			{
+				cout << "-10 tasku\n";
+				score = score - 10;
+			}
+		}
+	} while (a < b);
+	cout << "Player name: ";
+	cin >> string;
+	cout << "Player: " << string << " Scored: " << score << endl;
+	ofstream file;
+	file.open("score.txt", ios::out);
+	file.close();
+
+	file << "player: " << string << " scored: " << score << endl;
+
+}
+
+void score() {
+
+
+
+}
+
+void help() {
+
+	cout << "Zaidimas valdomas su: WASD\n";
+	cout << "Zaidimo metu reikia spausti atitinkama krypti nurodyta ekrane.\n";
+	cout << "Galimi variantai: \n";
+	cout << "^, <, v, > - Nurodyta su rodyklem kryptis kuria spausti.\n";
+	cout << "Up, left, down, right - Nurodyta kryptis Angliskai.\n";
+	cout << "Virsus, kaire, apacia, desine - Nurodyta kryptis Lietuviskai.\n";
+	cout << "12h, 9h, 6h, 3h - Nurodyta kryptis pagal laikrodzio rodykle.\n";
+	cout << "360Deg. 270Deg. 180Deg. 90Deg. Nurodyta kryptis pagal laipsnius.\n";
+	cout << "Taskai: \n";
+	cout << "Uz teisingai nurodyta krypti +10 tasku\n";
+	cout << "Uz neteisingai nurodyta krypti -10 tasku\n";
+	cout << "\n\n";
+	cout << "Game controls with: WASD\n";
+	cout << "The player has to press the written side.\n";
+	cout << "Possible variants: \n";
+	cout << "^, <, v, > - the direction is pointed with arrows.\n";
+	cout << "Up, left, down, right - the direction is written in English.\n";
+	cout << "Virsus, kaire, apacia, desine - the direction is written in Lithuanian.\n";
+	cout << "12h, 9h, 6h, 3h - the direction is pointed clockwise.\n";
+	cout << "360Deg. 270Deg. 180Deg. 90Deg. the direction is pointed with degrees.\n";
+	cout << "Taskai: \n";
+	cout << "For correct option +10 points\n";
+	cout << "For incorrect option -10 points\n";
+	cout << "\n";
+	system("pause\n");
+
+}
