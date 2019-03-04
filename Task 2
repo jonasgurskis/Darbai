@@ -1,87 +1,79 @@
 /*
-You must implement 4 different data structures ADT: binary tree, stack and 2 freely chosen.
-  
-All data structures must have basic functions for implemented ADT. Also you should create simple application where you demonstrate how it works for e.g. if you implementing data structure Stack you can implement algorithm which is simulates simple expressions calculation: 9(((5+8)+(87))+3) => Stack sequence: push(9); push(5); push(8); push(pop+pop); push(8); push (7); push(poppop); push(pop+pop); push(3);push(pop+pop); push(poppop); writeln(pop);
-Your app output also should visible in console every step -> when you adding deleting or displaying data structure content or container.
- 
-The functions associated with stack are:
-empty() – Returns whether the stack is empty – Time Complexity : O(1)
-size() – Returns the size of the stack – Time Complexity : O(1)
-top() – Returns a reference to the top most element of the stack – Time Complexity : O(1)
-push(g) – Adds the element ‘g’ at the top of the stack – Time Complexity : O(1)
-pop() – Deletes the top most element of the stack – Time Complexity : O(1)
-
+Push() storing
+pop() accessing
+peek() get top element
+isFull() check if is full
+isEmpty() check if is empty
+destroy() delete element
 */
 
 #include <iostream>
-#include <cstdlib>
-#include <>
+#include <conio.h>
 
 using namespace std;
 
-int container[MAX_SIZE];
-// STACK
+int stack[100], n=100, top=-1;
 
-class Stack {
-int top;
-stack(){top = -1
-}
-
-// IS FULL
-
-bool isFull(){
-if(MAX_SIZE - top == 1)
-  {
-  return true;
-  }
-  else
-  {
-  return false;
-  }
-}
-
-// IS EMPTY
-
-bool isEmpty(){
-if(top == -1)
-  {
-  return true;
-  }
-  else
-  {
-  return false;
-  }
-}
-
-// PUSH
-
-void push(int x){
- if(!isFull()){
-   top++;
-   container[top] = x;
+void push(int val) {
+   if(top>=n-1)
+      cout<<"Stack is empty"<<endl;
+   else {
+      top++;
+      stack[top]=val;
    }
-   else
-   {
-   cout << "\nStack is full\n";
+}
+
+void pop() {
+   if(top<=-1)
+      cout<<"Stack is empty"<<endl;
+   else {
+      cout<<"The popped element is "<< stack[top] <<endl;
+      top--;
    }
- }
-
-void print(){ cout << "------------------------------------" << endl;
-
-for(int i = 0; i <= top; i++)
-{
-if(top == i)
-  {
-  cout << container[i] << ".";
-  }
-  else
-  {
-  cout << container[i] << ",";
-  }
 }
 
-cout << "------------------------------------" << endl;
-
+void display() {
+   if(top>=0) {
+      cout<<"Stack elements are:";
+      for(int i=top; i>=0; i--)
+         cout<<stack[i]<<" ";
+         cout<<endl;
+   } else
+      cout<<"Stack is empty";
 }
 
-};
+int main() {
+   int ch, val;
+   cout<<"1) Push in stack"<<endl;
+   cout<<"2) Pop from stack"<<endl;
+   cout<<"3) Display stack"<<endl;
+   cout<<"4) Exit"<<endl;
+   do {
+      cout<<"Enter choice: "<<endl;
+      //cin>>ch;
+      switch(getch()) {
+         case '1': {
+            cout<<"Enter value to be pushed:"<<endl;
+            cin>>val;
+            push(val);
+            break;
+         }
+         case '2': {
+            pop();
+            break;
+         }
+         case '3': {
+            display();
+            break;
+         }
+         case '4': {
+            cout<<"Exit"<<endl;
+            return 0;
+            break;
+         }
+         default: {
+            cout<<"Invalid Choice"<<endl;
+         }
+      }
+   }while(ch!=4);
+}
