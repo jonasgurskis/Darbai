@@ -1,22 +1,34 @@
 /*
-Push() storing
-pop() accessing
-peek() get top element
 isFull() check if is full
 isEmpty() check if is empty
-destroy() delete element
+destroy() delete all stack elements
 */
 
 #include <iostream>
 #include <conio.h>
+#define MAX 5
 
 using namespace std;
 
-int stack[100], n=100, top=-1;
+int stack[MAX], n=MAX, top=-1;
+
+bool isEmpty(){
+    if(top==-1)
+        return 1;
+    else
+        return 0;
+}
+
+bool isFull(){
+    if(top==MAX-1)
+        return 1;
+    else
+        return 0;
+}
 
 void push(int val) {
    if(top>=n-1)
-      cout<<"Stack is empty"<<endl;
+      cout<<"Stack is full"<<endl;
    else {
       top++;
       stack[top]=val;
@@ -34,12 +46,35 @@ void pop() {
 
 void display() {
    if(top>=0) {
-      cout<<"Stack elements are:";
+      cout<<"Stack elements are: ";
       for(int i=top; i>=0; i--)
          cout<<stack[i]<<" ";
          cout<<endl;
    } else
-      cout<<"Stack is empty";
+      cout<<"Stack is empty"<<endl;
+}
+
+void destroy() {
+/*    if(top != -1) {
+      cout<<"Destroying stack elements"<<endl;
+      do
+      {
+        cout<< stack[top] <<endl;
+        top--;
+      }while(top == -1);
+   }
+   else
+   cout<<"Stack is empty"<<endl;*/
+
+    int temp;
+    if(isEmpty()){
+        cout<<"STACK is EMPTY."<<endl;
+        return;
+    }
+
+    temp=stack[top];
+    top--;
+    cout<<temp<<" has been deleted."<<endl;
 }
 
 int main() {
@@ -47,7 +82,8 @@ int main() {
    cout<<"1) Push in stack"<<endl;
    cout<<"2) Pop from stack"<<endl;
    cout<<"3) Display stack"<<endl;
-   cout<<"4) Exit"<<endl;
+   cout<<"4) Destroy all stack elements"<<endl;
+   cout<<"0) Exit"<<endl;
    do {
       cout<<"Enter choice: "<<endl;
       //cin>>ch;
@@ -66,14 +102,18 @@ int main() {
             display();
             break;
          }
-         case '4': {
+         case '0': {
             cout<<"Exit"<<endl;
             return 0;
             break;
+         }
+         case '4': {
+         destroy();
+         break;
          }
          default: {
             cout<<"Invalid Choice"<<endl;
          }
       }
-   }while(ch!=4);
+   }while(ch!=0);
 }
