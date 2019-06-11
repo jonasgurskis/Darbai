@@ -1,0 +1,140 @@
+#include <iostream>
+#include <ctime>
+#include <fstream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <conio.h>
+#pragma warning(disable : 4996)
+
+using namespace std;
+
+void menu();
+void search(ifstream& stream, string token);
+void Ascending();
+void Descending();
+void New_Input();
+
+int main() {
+
+	menu();
+}
+
+void menu()
+{
+	string stream, token;
+	cout << "1. New Input." << endl;
+	cout << "2. sort data ascending." << endl;
+	cout << "3. sort data descending." << endl;
+	cout << "4. search by keywoard. \n" << endl;
+	cout << "-------------------------------" << endl;
+	cout << "6. exit" << endl;
+	cout << "-------------------------------" << endl;
+
+	while (true)
+	{
+		cout << "Waiting for input: ";
+		switch (_getch())
+		{
+
+		case '1':
+			cout << "New data input." << endl;
+			New_Input();
+			break;
+		case '2':
+			cout << "Sort data ascending." << endl;
+			Ascending();
+			break;
+		case '3':
+			cout << "Sort data descending." << endl;
+			Descending();
+			break;
+		case '4':
+			//search(stream, token);
+			break;
+		case '6':
+			exit(1);
+			break;
+		default:
+			cout << "Unrecognised input try again." << endl;
+			break;
+		}
+
+	}
+
+}
+
+void New_Input()
+{
+
+	string name, last_name;
+
+	cout << "Your name: ";
+	cin >> name;
+	cout << "Your last name: ";
+	cin >> last_name;
+
+	ofstream out_file;
+	time_t now = time(0);
+
+	char* data = ctime(&now);
+
+	ofstream log("sorting.txt", ios_base::app | ios_base::out);
+	log << "Name: [ " << name << " ] Last name: [ " << last_name << " ] Date: " << data << endl;
+}
+
+void Ascending()
+{
+	ifstream file("sorting.txt");
+	vector<string> rows;
+
+	// Read all the lines and add them to the rows vector
+	while (!file.eof())
+	{
+		string line;
+		getline(file, line);
+		rows.push_back(line);
+	}
+
+	// Sort the vector
+	sort(rows.begin(), rows.end());
+
+	// Print out all of the vectors values
+	vector<string>::iterator iterator = rows.begin();
+	for (; iterator != rows.end(); ++iterator)
+		cout << *iterator << endl;
+}
+
+void Descending()
+{
+	ifstream file("sorting.txt");
+	vector<string> rows;
+
+	// Read all the lines and add them to the rows vector
+	while (!file.eof())
+	{
+		string line;
+		getline(file, line);
+		rows.push_back(line);
+	}
+
+	// Sort the vector
+	sort(rows.rbegin(), rows.rend());
+
+	// Print out all of the vectors values
+	vector<string>::iterator iterator = rows.begin();
+	for (; iterator != rows.end(); ++iterator)
+		cout << *iterator << endl;
+}
+
+void search(ifstream& stream, string token)
+{
+				string name, found;
+	string line;
+	while (getline(stream, line)) {
+		if (line.find(token) != string::npos) {
+			cout << line << endl;
+		}
+	}
+	cout << token << " not found" << endl;
+}
