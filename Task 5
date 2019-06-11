@@ -1,0 +1,212 @@
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <string>
+
+using namespace std;
+
+struct TreeNode
+{
+	string text;
+	TreeNode* yes_answer, * no_answer;
+};
+typedef TreeNode* TreeNodePtr;
+
+//typedef TreeNode* TreeNodePtr;
+
+TreeNodePtr create_default_tree();
+
+TreeNodePtr create_default_tree()
+{
+	TreeNodePtr yes = new TreeNode;
+	TreeNodePtr no = new TreeNode;
+	TreeNodePtr root = new TreeNode;
+
+	no->text = "Bird";
+	no->yes_answer = NULL;
+	no->no_answer = NULL;
+
+	yes->text = "Monkey";
+	yes->yes_answer = NULL;
+	yes->no_answer = NULL;
+
+	root->text = "Does your animal have 4 legs?";
+	root->yes_answer = yes;
+	root->no_answer = no;
+
+	return root;
+}
+
+// Identifieriai
+void choice(TreeNodePtr& head, TreeNodePtr& last_accessed);
+bool ask_if_animal(TreeNodePtr start);
+void build_question(TreeNodePtr& head);
+void write_to_file(TreeNodePtr start, ofstream& out_file);
+int get_answer();
+
+int main()
+{
+	TreeNodePtr head;
+	TreeNodePtr last_accessed;
+
+	ofstream out_file;
+	ifstream in_file;
+
+	cout << " ANIMAL GUESSING GAME." << endl;
+	head = create_default_tree();
+
+	while (true)
+	{
+		choice(head, last_accessed);
+		if (ask_if_animal(last_accessed) == true)
+		{
+			cout << "I got it right." << endl;
+		}
+		else
+		{
+			build_question(last_accessed);
+		}
+
+		string filename;
+		cout << "Please write file name to save question in. (EXAMPLE Filename.txt)" << endl;
+		cin >> filename;
+
+		out_file.open(filename);
+		write_to_file(head, out_file);
+		out_file.close();
+
+		string input;
+		cout << "Play again? " << endl;
+		cin >> input;
+		cin.ignore();
+		if (input == "yes" || input == "Yes" || input == "YES")
+		{
+			
+			// Play_game();
+		}
+		else if (input == "no" || input == "No" || input == "NO")
+		{
+			cout << "Thank you for playing Animal guessing game." << endl;
+			system("pause");
+			exit(1);
+		}
+		else
+		{
+			// play_again();
+			cout << "Invalid answer. " << endl;
+			main();
+		}
+	}
+}
+
+void choice(TreeNodePtr& start, TreeNodePtr& last_accessed)
+{
+	string user_choice;
+	last_accessed = start;
+	if (start->yes_answer == NULL && start->no_answer == NULL)
+		return;
+	else
+	{
+		// pakeisti loopa
+		cout << "Question: " << start->text << endl;
+		cin >> user_choice;
+		if (user_choice == "No" || user_choice == "NO" || user_choice == "no")
+		{
+			choice(start->no_answer, last_accessed);
+		}
+		else if (user_choice == "Yes" || user_choice == "yes" || user_choice == "YES")
+		{
+			choice(start->yes_answer, last_accessed);
+		}
+		else
+		{
+			cout << "Not a valid answer. ";
+			choice(start, last_accessed);
+		}
+	}
+}
+
+bool ask_if_animal(TreeNodePtr start)
+{
+	int user_decision;
+	cout << "Is your animal a(n) " << start->text << "?" << endl;
+	user_decision = get_answer();
+	if (user_decision == 0)
+		return false;
+	else
+	{
+		if (user_decision == 1)
+			return true;
+		else
+		{
+			cout << "Invalid answer.";
+			ask_if_animal(start);
+		}
+	}
+}
+
+void build_question(TreeNodePtr& start)
+{
+	string new_a; // new animal name
+	string new_q; // new question
+
+	cout << "Whats your animal called? " << endl;
+	cin >> new_a;
+	
+	cout << "Please type a question for which answer YES will be a " << new_a << " and NO for a " << start->text << "." << endl;
+	cin >> new_q;
+	getline (cin, new_q);
+	//cin >> new_q;
+	
+
+	TreeNodePtr yes_ans = new TreeNode;
+	yes_ans->text = new_a;
+	yes_ans->yes_answer = NULL;
+	yes_ans->no_answer = NULL;
+
+	TreeNodePtr no_ans = new TreeNode;
+	no_ans->text = start->text;
+	no_ans->yes_answer = NULL;
+	no_ans->no_answer = NULL;
+
+	start->text = new_q;
+	start->yes_answer = yes_ans;
+	start->no_answer = no_ans;
+
+	return;
+}
+
+void write_to_file(TreeNodePtr start, ofstream& out_file)
+{
+	if (start == NULL)
+		out_file << "*" << endl;
+	else
+	{
+		out_file << start->text << endl;
+		write_to_file(start->yes_answer, out_file);
+		write_to_file(start->no_answer, out_file);
+	}
+}
+
+int get_answer()
+{
+	string answer;
+	cin.clear();
+	cin >> answer;
+	if (answer == "yes" || answer == "YES" || answer == "Yes")
+	{
+		return 1;
+	}
+
+	else
+	{
+		if (answer == "No" || answer == "NO" || answer == "no")
+		{
+			return 0;
+		}
+		else
+		{
+			return -1;
+		}
+	}
+}
