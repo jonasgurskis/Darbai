@@ -1,6 +1,6 @@
 /*
 Algorithms & Data Structures Project
-Jonas Gurskis PI18E 
+Jonas Gurskis PI18E
 Karolis Sarskus PI18E
 */
 
@@ -9,35 +9,74 @@ Karolis Sarskus PI18E
 
 using namespace std;
 
-void Drinks;
-void Meals;
-void Deserts;
-void Exchange;
+void Drinks();
+void Meals();
+void Deserts();
+void Exchange();
+void Clear();
+
+int Water = 0;
+int Cola = 0;
+int Beer = 0;
+
+int Hamburger = 0;
+int Pizza = 0;
+int Fish = 0;
+
+int Cake = 0;
+int Pie = 0;
+int Ice = 0;
+
+int Sum = 0;
+int i = 1;
+int j = 1;
+int k = 1;
+int l = 1;
+int m = 1;
+int n = 1;
+int o = 1;
+int p = 1;
+int r = 1;
 
 int main()
 {
+	while (true)
+	{
+	system("cls");
+	cout << "---------------------------" << endl;
+	cout << "Welcome to the restaurant !" << endl;
+	cout << "---------------------------" << endl;
 	cout << "1. Drinks menu." << endl;
 	cout << "2. Meals menu." << endl;
 	cout << "3. Deserts menu." << endl;
-	cout << "4. proceed the money exchange. \n" << endl;
-	
+	cout << "4. proceed the money exchange. ( " << Sum << " Eur.)\n" << endl;
+
 	cout << "5. End task." << endl;
 
-	while (true)
-	{
 		switch (_getch())
 		{
-		case '1': 
-
+		case '1':
+			system("cls");
+			Drinks();
 			break;
 		case '2':
-
+			system("cls");
+			Meals();
 			break;
 		case '3':
-
+			system("cls");
+			Deserts();
 			break;
 		case '4':
-
+			if (Sum > 0) 
+			{
+				Exchange();
+			}
+			else 
+			{
+				cout << "Your cart is empty." << endl;
+				system("pause");
+			}
 			break;
 		case '5':
 			exit(1);
@@ -49,22 +88,246 @@ int main()
 	}
 }
 
-void Drinks ()
+void Drinks()
 {
+	cout << "	DRINKS" << endl;
+	cout << "-------------------------" << endl;
+	cout << "1. Water 	Price: 1Euro" << endl;
+	cout << "2. Cola 	Price: 1Euro" << endl;
+	cout << "3. Beer 	Price: 2Euro" << endl;
+	cout << "-------------------------" << endl;
 
+	switch (_getch())
+	{
+	case '1':
+		cout << "Adding Water to cart.\n"<< endl;
+		Water++;
+		Sum = Sum + 1;
+		break;
+	case '2':
+		cout << "Adding Cola to cart.\n" << endl;
+		Cola++;
+		Sum = Sum + 1,5;
+		break;
+	case '3':
+		cout << "Adding Beer to cart.\n" << endl;
+		Beer++;
+		Sum = Sum + 2;
+		break;
+	default:
+		system("cls");
+		cout << "Unrecognised input. Try again.\n" << endl;
+		Drinks();
+	}
 }
 
-void Meals ()
+void Meals()
 {
+	cout << "	MEALS" << endl;
+	cout << "-------------------------" << endl;
+	cout << "1. Hamburger	Price: 1Euro" << endl;
+	cout << "2. Pizza	Price: 3Euro" << endl;
+	cout << "3. Fish		Price: 5Euro" << endl;
+	cout << "-------------------------" << endl;
 
+	switch (_getch())
+	{
+	case '1':
+		cout << "Adding Hamburger to cart.\n" << endl;
+		Hamburger = Hamburger + 1;
+		Sum = Sum + 1;
+		break;
+	case '2':
+		cout << "Adding Pizza to cart.\n" << endl;
+		Pizza++;
+		Sum = Sum + 3;
+		break;
+	case '3':
+		cout << "Adding Fish to cart.\n" << endl;
+		Fish++;
+		Sum = Sum + 5;
+		break;
+	default:
+		system("cls");
+		cout << "Unrecognised input. Try again.\n" << endl;
+		Meals();
+	}
 }
 
-void Deserts ()
+void Deserts()
 {
+	cout << "	DESERTS" << endl;
+	cout << "-------------------------" << endl;
+	cout << "1. Cake		Price: 4Euro" << endl;
+	cout << "2. Pie		Price: 3Euro" << endl;
+	cout << "3. Ice cream	Price: 2Euro" << endl;
+	cout << "-------------------------" << endl;
 
+	switch (_getch())
+	{
+	case '1':
+		cout << "Adding Cake to cart.\n" << endl;
+		Cake++;
+		Sum = Sum + 4;
+		break;
+	case '2':
+		cout << "Adding Pie to cart.\n" << endl;
+		Cake++;
+		Sum = Sum + 3,5;
+		break;
+	case '3':
+		cout << "Adding Ice cream to cart.\n" << endl;
+		Cake++;
+		Sum = Sum + 2;
+		break;
+	default:
+		system("cls");
+		cout << "Unrecognised input. Try again.\n" << endl;
+		Deserts();
+	}
 }
 
-void Exchange ()
+void Exchange()
 {
+	cout << "-------------------------" << endl;
+	cout << "Your ordered products: \n" << endl;
+	if (Water >= 1)
+	{
+		if (Water > 1)
+		{
+			cout << "Water " << Water << "x" << endl;
+		}
+		else
+		{
+			cout << "Water" << endl;
+		}
+	}
 
+	if (Cola >= 1)
+	{
+		if (Cola > 1)
+		{
+			cout << "Cola " << Cola << "x" << endl;
+		}
+		else
+		{
+			cout << "Cola" << endl;
+		}
+	}
+
+	if (Beer >= 1)
+	{
+		if (Beer > 1)
+		{
+			cout << "Beer " << Beer << "x" << endl;
+		}
+		else
+		{
+			cout << "Beer" << endl;
+		}
+	}
+
+	if (Hamburger >= 1)
+	{
+		if (Hamburger > 1)
+		{
+			cout << "Hamburger " << Hamburger << "x" << endl;
+		}
+		else
+		{
+			cout << "Hamburger" << endl;
+		}
+	}
+
+	if (Pizza >= 1)
+	{
+		if (Pizza > 1)
+		{
+			cout << "Pizza " << Pizza << "x" << endl;
+		}
+		else
+		{
+			cout << "Pizza" << endl;
+		}
+	}
+
+	if (Fish >= 1)
+	{
+		if (Fish > 1)
+		{
+			cout << "Fish " << Fish << "x" << endl;
+		}
+		else
+		{
+			cout << "Fish" << endl;
+		}
+	}
+
+	if (Cake >= 1)
+	{
+		if (Water > 1)
+		{
+			cout << "Cake " << Cake << "x" << endl;
+		}
+		else
+		{
+			cout << "Cake" << endl;
+		}
+	}
+
+	if (Pie >= 1)
+	{
+		if (Pie > 1)
+		{
+			cout << "Pie " << Pie << "x" << endl;
+		}
+		else
+		{
+			cout << "Pie" << endl;
+		}
+	}
+
+	if (Ice >= 1)
+	{
+		if (Ice > 1)
+		{
+			cout << "Ice " << Ice << "x" << endl;
+		}
+		else
+		{
+			cout << "Ice" << endl;
+		}
+	}
+	cout << "\nProceeding to the money exchange...\n" << endl;
+	cout << "Price: " << Sum << " Euro." << endl;
+	cout << "-------------------------\n" << endl;
+	cout << "Successful!" << endl;
+	system("pause");
+	Clear();
+}
+
+void Clear()
+{
+	Water = 0;
+	Cola = 0;
+	Beer = 0;
+
+	Hamburger = 0;
+	Pizza = 0;
+	Fish = 0;
+
+	Cake = 0;
+	Pie = 0;
+	Ice = 0;
+
+	 Sum = 0;
+	 i = 1;
+	 j = 1;
+	 k = 1;
+	 l = 1;
+	 m = 1;
+	 n = 1;
+	 o = 1;
+	 p = 1;
+	 r = 1;
 }
