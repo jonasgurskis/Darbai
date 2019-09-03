@@ -1,0 +1,45 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+         class Staciakampis
+        {
+            public double a;
+            public double b;
+            public Staciakampis (double aa, double bb)
+            {
+                a = aa;
+                b = bb;
+            }
+            public double getPlotis()
+            {
+                return a * b;
+            }
+            public double getPerimetras()
+            {
+                return 2 * a + 2 * b;
+            }
+            public double getIstrizaine()
+            {
+                return (a * a + b * b);
+            }
+            /*public double getKoordinate()
+            {
+                return a;
+            }*/
+        }
+        Staciakampis S1 = new Staciakampis(2,3);
+        Staciakampis S2 = new Staciakampis(4,6);
+        S1.getPlotis();
+        S1.getPerimetras();
+        S1.getIstrizaine();
+        //S1.getKoordinate();
+
+        S2.getPlotis();
+        S2.getPerimetras();
+        S2.getIstrizaine();
+        //S2.getKoordinate();
+    }
+}
