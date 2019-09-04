@@ -1,0 +1,53 @@
+ #include <iostream>
+
+int main()
+{
+   int size = 3, x, y;
+   int matrix[3][3];
+   
+   for (x = 0; x < size; x++)
+            for (y = 0; y < size; y++)
+    std::cin >> matrix[x][y];
+    std::cout << "your matrix is : " << std::endl;
+        for (x = 0; x < size; x++)
+            for (y = 0; y < size; y++)
+    std::cout << matrix[x][y];
+   
+        for (x = 0; x < size; x++)
+            for (y = 0; y < size; y++)
+    std::cin >> matrix[x][y];
+    std::cout << "your matrix is : " << std::endl;
+        for (x = 0; x < size; x++)
+            for (y = 0; y < size; y++)
+    std::cout << matrix[x][y];
+
+
+
+
+
+ #include <iostream>
+
+int main()
+{
+    int a1, a2, a3, b1, b2, b3, c1, c2, c3;
+    int a, b, c;
+    int Determinantas;
+    
+    std::cout << "enter your matrix elements form row 1" << std::endl;   
+    std::cin >> a1 >> a2 >> a3;
+    std::cout << "enter your matrix elements form row 2" << std::endl;   
+    std::cin >> b1 >> b2 >> b3;
+    std::cout << "enter your matrix elements form row 3" << std::endl;   
+    std::cin >> c1 >> c2 >> c3;
+    
+    std::cout << "Your matrix is: " << std::endl;
+    std::cout << a1 << " " << a2 << " " << a3 <<std::endl;
+    std::cout << b1 << " " << b2 << " " << b3 <<std::endl;
+    std::cout << c1 << " " << c2 << " " << c3 <<std::endl;
+   
+   a = b2 * c3 - b3 * c2;
+   b = b1 * c3 - b3 * c1;
+   c = b1 * c2 - b2 * c1;
+   Determinantas = a1 * a - a2 * b + a3 * c;
+   std::cout << "your determinant is: " << Determinantas << std::endl;
+}
