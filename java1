@@ -1,45 +1,52 @@
 package com.company;
 
-public class Main {
-
-    public static void main(String[] args) {
-
+public class Main
+{
+    public static void main(String[] args)
+    {
          class Staciakampis
-        {
-            public double a;
-            public double b;
-            public Staciakampis (double aa, double bb)
+         {
+             private double a;
+             private double b;
+            private Staciakampis(double aa, double bb)
             {
                 a = aa;
                 b = bb;
             }
-            public double getPlotis()
+
+            private void getPlotis()
             {
-                return a * b;
+                System.out.println("Plotis: " + (a*b));
             }
-            public double getPerimetras()
+
+            private void getPerimetras()
             {
-                return 2 * a + 2 * b;
+                System.out.println("Perimetras: " + (2 * a + 2 * b));
             }
-            public double getIstrizaine()
+
+            private void getIstrizaine()
             {
-                return (a * a + b * b);
+                System.out.println("Istrizaines ilgis: " + Math.sqrt(a * a + b * b));
             }
-            /*public double getKoordinate()
+
+            private void getKoordinate()
             {
-                return a;
-            }*/
+                System.out.println("X :" + (a / 2) + " Y :" + (b / 2));
+            }
+
         }
-        Staciakampis S1 = new Staciakampis(2,3);
-        Staciakampis S2 = new Staciakampis(4,6);
+        Staciakampis S1 = new Staciakampis(2,5);
         S1.getPlotis();
         S1.getPerimetras();
         S1.getIstrizaine();
-        //S1.getKoordinate();
+        S1.getKoordinate();
 
+        System.out.println();
+
+        Staciakampis S2 = new Staciakampis(4,6);
         S2.getPlotis();
         S2.getPerimetras();
         S2.getIstrizaine();
-        //S2.getKoordinate();
+        S2.getKoordinate();
     }
 }
