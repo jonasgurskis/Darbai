@@ -4,38 +4,41 @@ public class Main
 {
     public static void main(String[] args)
     {
-         class Staciakampis
+         class Rectangle
          {
-             private double a;
-             private double b;
-            private Staciakampis(double aa, double bb)
+             public double ilgis;
+             public double plotis;
+             public double koordinate;
+
+             public Rectangle(double Ilgis, double Plotis, double KoordinateY)
             {
-                a = aa;
-                b = bb;
+                ilgis = Ilgis;
+                plotis = Plotis;
+                koordinate = KoordinateY;
+            }
+            
+             public void getPlotis()
+            {
+                System.out.println("Stačiakampio plotas: " + (ilgis*plotis));
             }
 
-            private void getPlotis()
+             public void getPerimetras()
             {
-                System.out.println("Plotis: " + (a*b));
+                System.out.println("Stačiakampio perimetras: " + (2 * ilgis + 2 * plotis));
             }
 
-            private void getPerimetras()
+             public void getIstrizaine()
             {
-                System.out.println("Perimetras: " + (2 * a + 2 * b));
+                System.out.println("Įstrižainės ilgis: " + Math.sqrt(ilgis * ilgis + plotis * plotis));
             }
 
-            private void getIstrizaine()
+            public void getKoordinate()
             {
-                System.out.println("Istrizaines ilgis: " + Math.sqrt(a * a + b * b));
-            }
-
-            private void getKoordinate()
-            {
-                System.out.println("X :" + (a / 2) + " Y :" + (b / 2));
+                System.out.println("Stačiakampio įstrižainių susikirtimo taško koordinatė: (X :" + (ilgis / 2) + " Y :" + (koordinate / 2) + ")");
             }
 
         }
-        Staciakampis S1 = new Staciakampis(2,5);
+        Rectangle S1 = new Rectangle(2,4,5);
         S1.getPlotis();
         S1.getPerimetras();
         S1.getIstrizaine();
@@ -43,7 +46,7 @@ public class Main
 
         System.out.println();
 
-        Staciakampis S2 = new Staciakampis(4,6);
+        Rectangle S2 = new Rectangle(4,6,6);
         S2.getPlotis();
         S2.getPerimetras();
         S2.getIstrizaine();
