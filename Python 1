@@ -1,0 +1,28 @@
+import math
+class Rectangle():
+    ilgis = 0
+    plotis = 0
+    koordinate = 0
+
+    def  __init__(self, StaciakampioIlgis, StaciakampioPlotis, Koordinate):
+        self.ilgis = StaciakampioIlgis
+        self.plotis = StaciakampioPlotis
+        self.koordinate = Koordinate
+
+    def getPlotis (self):
+        return self.ilgis * self.plotis
+
+    def getPerimetras (self):
+        return 2 * self.ilgis + 2 * self.plotis 
+
+    def getIstrizaine (self):
+        return math.sqrt(self.ilgis * self.ilgis + self.plotis * self.plotis)
+
+    def getKoordinate (self):
+        return ("X:", self.ilgis / 2, "Y: ", self.koordinate / 2)
+
+rectangle = Rectangle(7, 5, 6)
+print("Plotis: ", rectangle.getPlotis())
+print("Perimetras: ", rectangle.getPerimetras())
+print("Istrizaine: ", rectangle.getIstrizaine())
+print("Koordinate: ", rectangle.getKoordinate())
