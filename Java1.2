@@ -42,7 +42,8 @@ public class Main
                 System.out.println("Stačiakampio perimetras: " + (2 * ilgis + 2 * plotis)); }
 
              private void getIstrizaine() {
-                System.out.println("Įstrižainės ilgis: " + Math.sqrt(ilgis * ilgis + plotis * plotis)); }
+                System.out.printf("Įstrižainės ilgis: " + "%.2f", Math.sqrt(ilgis * ilgis + plotis * plotis));
+                System.out.println("");}
 
              private void getKoordinate() {
                 System.out.println("Stačiakampio įstrižainių susikirtimo taško koordinatė: (X : " + (ilgis / 2) + " Y : " + (koordinate / 2) + ")"); }
