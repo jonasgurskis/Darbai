@@ -4,52 +4,65 @@ public class Main
 {
     public static void main(String[] args)
     {
-         class Rectangle
-         {
-             public double ilgis;
-             public double plotis;
-             public double koordinate;
+        class Rectangle
+        {
+            public double ilgis;
+            public double plotis;
+            public double koordinate;
 
-             public Rectangle(double Ilgis, double Plotis, double KoordinateY)
+            public Rectangle(double Ilgis, double Plotis, double KoordinateY)
             {
                 ilgis = Ilgis;
                 plotis = Plotis;
                 koordinate = KoordinateY;
             }
-            
-             public void getPlotis()
+
+            public double getPlotis()
             {
-                System.out.println("Stačiakampio plotas: " + (ilgis*plotis));
+                return ilgis*plotis;
+                //System.out.println("Stačiakampio plotas: " + (ilgis*plotis));
             }
 
-             public void getPerimetras()
+            public double getPerimetras()
             {
-                System.out.println("Stačiakampio perimetras: " + (2 * ilgis + 2 * plotis));
+                return 2 * ilgis + 2 * plotis;
+                //System.out.println("Stačiakampio perimetras: " + (2 * ilgis + 2 * plotis));
             }
 
-             public void getIstrizaine()
+            public double getIstrizaine()
             {
-                System.out.println("Įstrižainės ilgis: " + Math.sqrt(ilgis * ilgis + plotis * plotis));
+                return Math.sqrt(ilgis * ilgis + plotis * plotis);
+                //System.out.println("Įstrižainės ilgis: " + Math.sqrt(ilgis * ilgis + plotis * plotis));
             }
 
-            public void getKoordinate()
+            public double getKoordinate()
             {
-                System.out.println("Stačiakampio įstrižainių susikirtimo taško koordinatė: (X :" + (ilgis / 2) + " Y :" + (koordinate / 2) + ")");
+                // return 2 koordinates o ne sudeti su +
+                return (ilgis / 2) + (koordinate / 2);
+                //System.out.println("Stačiakampio įstrižainių susikirtimo taško koordinatė: (X :" + (ilgis / 2) + " Y :" + (koordinate / 2) + ")");
             }
 
         }
         Rectangle S1 = new Rectangle(2,4,5);
-        S1.getPlotis();
-        S1.getPerimetras();
-        S1.getIstrizaine();
-        S1.getKoordinate();
+        System.out.format("Stačiakampio plotas: %.2f \n", S1.getPlotis());
+        System.out.format("Stačiakampio perimetras: %.2f \n", S1.getPerimetras());
+        System.out.format("Įstrižainės ilgis: %.2f \n", S1.getIstrizaine());
+        System.out.format("Stačiakampio įstrižainių susikirtimo taško koordinatė: %.2f \n", S1.getKoordinate());
+        //S1.getPlotis();
+        //S1.getPerimetras();
+        //S1.getIstrizaine();
+        //S1.getKoordinate();
 
         System.out.println();
 
         Rectangle S2 = new Rectangle(4,6,6);
-        S2.getPlotis();
-        S2.getPerimetras();
-        S2.getIstrizaine();
-        S2.getKoordinate();
+        System.out.format("Stačiakampio plotas: %.2f \n", S2.getPlotis());
+        System.out.format("Stačiakampio perimetras: %.2f \n", S2.getPerimetras());
+        System.out.format("Įstrižainės ilgis: %.2f \n", S2.getIstrizaine());
+        System.out.format("Stačiakampio įstrižainių susikirtimo taško koordinatė: %.2f \n", S2.getKoordinate());
+        //S2.getPlotis();
+        //S2.getPerimetras();
+        //S2.getIstrizaine();
+        //S2.getKoordinate();
     }
 }
