@@ -1,68 +1,84 @@
 package com.company;
-
-public class Main
-{
-    public static void main(String[] args)
+import java.util.Scanner;
+    class Duomenys
     {
-        class Rectangle
-        {
-            public double ilgis;
-            public double plotis;
-            public double koordinate;
+        public String vardas;
+        public String pavarde;
+        public String grupe;
+        public String dalykas;
+        public int kreditai;
+        public int kontrolinis;
+        public int praktinis;
+        public int egzaminas;
 
-            public Rectangle(double Ilgis, double Plotis, double KoordinateY)
-            {
-                ilgis = Ilgis;
-                plotis = Plotis;
-                koordinate = KoordinateY;
-            }
-
-            public double getPlotis()
-            {
-                return ilgis*plotis;
-                //System.out.println("Stačiakampio plotas: " + (ilgis*plotis));
-            }
-
-            public double getPerimetras()
-            {
-                return 2 * ilgis + 2 * plotis;
-                //System.out.println("Stačiakampio perimetras: " + (2 * ilgis + 2 * plotis));
-            }
-
-            public double getIstrizaine()
-            {
-                return Math.sqrt(ilgis * ilgis + plotis * plotis);
-                //System.out.println("Įstrižainės ilgis: " + Math.sqrt(ilgis * ilgis + plotis * plotis));
-            }
-
-            public double getKoordinate()
-            {
-                // return 2 koordinates o ne sudeti su +
-                return (ilgis / 2) + (koordinate / 2);
-                //System.out.println("Stačiakampio įstrižainių susikirtimo taško koordinatė: (X :" + (ilgis / 2) + " Y :" + (koordinate / 2) + ")");
-            }
-
+        public Duomenys(String Vardas, String Pavarde, String Grupe, String Dalykas, int Kreditai, int Kontrolinis, int Praktinis, int Egzaminas) {
+            vardas = Vardas;
+            pavarde = Pavarde;
+            grupe = Grupe;
+            dalykas = Dalykas;
+            kreditai = Kreditai;
+            kontrolinis = Kontrolinis;
+            praktinis = Praktinis;
+            egzaminas = Egzaminas;
         }
-        Rectangle S1 = new Rectangle(2,4,5);
-        System.out.format("Stačiakampio plotas: %.2f \n", S1.getPlotis());
-        System.out.format("Stačiakampio perimetras: %.2f \n", S1.getPerimetras());
-        System.out.format("Įstrižainės ilgis: %.2f \n", S1.getIstrizaine());
-        System.out.format("Stačiakampio įstrižainių susikirtimo taško koordinatė: %.2f \n", S1.getKoordinate());
-        //S1.getPlotis();
-        //S1.getPerimetras();
-        //S1.getIstrizaine();
-        //S1.getKoordinate();
+        public  double getVidurkis() {
+            return kontrolinis * 0.2 + praktinis * 0.5 + egzaminas * 0.3;
+        }
+        public String getVardas()
+        {
+            return vardas;
+        }
+        public String getPavarde()
+        {
+            return pavarde;
+        }
+        public String getGrupe()
+        {
+            return grupe;
+        }
+        public String getDalykas()
+        {
+            return dalykas;
+        }
+        public int getKreditai()
+        {
+            return kreditai;
+        }
+        public int getKontrolinis()
+        {
+            return kontrolinis;
+        }
+        public int getPraktinis()
+        {
+            return praktinis;
+        }
+        public int getEgzaminas()
+        {
+            return egzaminas;
+        }
 
-        System.out.println();
 
-        Rectangle S2 = new Rectangle(4,6,6);
-        System.out.format("Stačiakampio plotas: %.2f \n", S2.getPlotis());
-        System.out.format("Stačiakampio perimetras: %.2f \n", S2.getPerimetras());
-        System.out.format("Įstrižainės ilgis: %.2f \n", S2.getIstrizaine());
-        System.out.format("Stačiakampio įstrižainių susikirtimo taško koordinatė: %.2f \n", S2.getKoordinate());
-        //S2.getPlotis();
-        //S2.getPerimetras();
-        //S2.getIstrizaine();
-        //S2.getKoordinate();
+    public static void main(String[] args){
+            Scanner scan = new Scanner(System.in);
+
+            System.out.print("Enter Student name: ");
+            String vardas = scan.next();
+            System.out.print("Enter Student lastname: ");
+            String pavarde = scan.next();
+            System.out.print("Enter Student group: ");
+            String grupe = scan.next();
+            System.out.print("Enter dalykas: ");
+            String dalykas = scan.next();
+            System.out.print("Enter Kretidu skaicius: ");
+            int kreditai = scan.nextInt();
+            System.out.print("Enter kontrolinio ivertinimas: ");
+            int kontrolinis = scan.nextInt();
+            System.out.print("Enter praktinio ivertinimas: ");
+            int praktinis = scan.nextInt();
+            System.out.print("Enter egzamino ivertinimas: ");
+            int egzaminas = scan.nextInt();
+            
+            Duomenys D1 = new Duomenys(vardas, pavarde, grupe, dalykas, kreditai, kontrolinis, praktinis, egzaminas);
+            System.out.println("Studento Vardas: " + D1.getVardas() + " Pavarde: " + D1.getPavarde() + " Grupe: " + D1.getGrupe() + " Dalykas: " + D1.getDalykas() + " Vidurkis: " + D1.getVidurkis());
+        }
     }
-}
