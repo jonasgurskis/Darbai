@@ -1,69 +1,85 @@
 package com.company;
-import java.util.Scanner;
-    class Duomenys
-    {
-        public String vardas;
-        public String pavarde;
-        public String grupe;
-        public String dalykas;
-        public int kreditai;
-        public int kontrolinis;
-        public int praktinis;
-        public int egzaminas;
+        import java.util.Scanner;
+public class Main {
 
-        public Duomenys(String Vardas, String Pavarde, String Grupe, String Dalykas, int Kreditai, int Kontrolinis, int Praktinis, int Egzaminas)
-        {
-            vardas = Vardas;
-            pavarde = Pavarde;
-            grupe = Grupe;
-            dalykas = Dalykas;
-            kreditai = Kreditai;
-            kontrolinis = Kontrolinis;
-            praktinis = Praktinis;
-            egzaminas = Egzaminas;
+    public static void main(String[] args) {
+        class Duomenys {
+            public String vardas;
+            public String pavarde;
+            public String grupe;
+            public String dalykas;
+            public int kreditai;
+            public int kontrolinis;
+            public int praktinis;
+            public int egzaminas;
+
+            public Duomenys(String Vardas, String Pavarde, String Grupe, String Dalykas, int Kreditai, int Kontrolinis, int Praktinis, int Egzaminas) {
+                vardas = Vardas;
+                pavarde = Pavarde;
+                grupe = Grupe;
+                dalykas = Dalykas;
+                kreditai = Kreditai;
+                kontrolinis = Kontrolinis;
+                praktinis = Praktinis;
+                egzaminas = Egzaminas;
+            }
+
+            public double getVidurkis() {
+                return kontrolinis * 0.2 + praktinis * 0.5 + egzaminas * 0.3;
+            }
+
+            public String getVardas() {
+                return vardas;
+            }
+
+            public String getPavarde() {
+                return pavarde;
+            }
+
+            public String getGrupe() {
+                return grupe;
+            }
+
+            public String getDalykas() {
+                return dalykas;
+            }
+
+            public int getKreditai() {
+                return kreditai;
+            }
+
+            public int getKontrolinis() {
+                return kontrolinis;
+            }
+
+            public int getPraktinis() {
+                return praktinis;
+            }
+
+            public int getEgzaminas() {
+                return egzaminas;
+            }
         }
-        public  double getVidurkis() {
-            return kontrolinis * 0.2 + praktinis * 0.5 + egzaminas * 0.3; }
-        public String getVardas() {
-            return vardas; }
-        public String getPavarde() {
-            return pavarde; }
-        public String getGrupe() {
-            return grupe; }
-        public String getDalykas() {
-            return dalykas; }
-        public int getKreditai() {
-            return kreditai; }
-        public int getKontrolinis() {
-            return kontrolinis; }
-        public int getPraktinis() {
-            return praktinis; }
-        public int getEgzaminas() {
-            return egzaminas; }
+        Scanner scan = new Scanner(System.in);
 
+        System.out.print("Enter Student name: ");
+        String vardas = scan.next();
+        System.out.print("Enter Student lastname: ");
+        String pavarde = scan.next();
+        System.out.print("Enter Student group: ");
+        String grupe = scan.next();
+        System.out.print("Enter dalykas: ");
+        String dalykas = scan.next();
+        System.out.print("Enter Kretidu skaicius: ");
+        int kreditai = scan.nextInt();
+        System.out.print("Enter kontrolinio ivertinimas: ");
+        int kontrolinis = scan.nextInt();
+        System.out.print("Enter praktinio ivertinimas: ");
+        int praktinis = scan.nextInt();
+        System.out.print("Enter egzamino ivertinimas: ");
+        int egzaminas = scan.nextInt();
 
-    public static void main(String[] args)
-        {
-            Scanner scan = new Scanner(System.in);
-
-            System.out.print("Enter Student name: ");
-            String vardas = scan.next();
-            System.out.print("Enter Student lastname: ");
-            String pavarde = scan.next();
-            System.out.print("Enter Student group: ");
-            String grupe = scan.next();
-            System.out.print("Enter dalykas: ");
-            String dalykas = scan.next();
-            System.out.print("Enter Kretidu skaicius: ");
-            int kreditai = scan.nextInt();
-            System.out.print("Enter kontrolinio ivertinimas: ");
-            int kontrolinis = scan.nextInt();
-            System.out.print("Enter praktinio ivertinimas: ");
-            int praktinis = scan.nextInt();
-            System.out.print("Enter egzamino ivertinimas: ");
-            int egzaminas = scan.nextInt();
-
-            Duomenys D1 = new Duomenys(vardas, pavarde, grupe, dalykas, kreditai, kontrolinis, praktinis, egzaminas);
-            System.out.println("Studento Vardas: " + D1.getVardas() + " Pavarde: " + D1.getPavarde() + " Grupe: " + D1.getGrupe() + " Dalykas: " + D1.getDalykas() + " Vidurkis: " + D1.getVidurkis());
-        }
+        Duomenys D1 = new Duomenys(vardas, pavarde, grupe, dalykas, kreditai, kontrolinis, praktinis, egzaminas);
+        System.out.println("Studento Vardas: " + D1.getVardas() + " Pavarde: " + D1.getPavarde() + " Grupe: " + D1.getGrupe() + " Dalykas: " + D1.getDalykas() + " Vidurkis: " + D1.getVidurkis());
     }
+}
