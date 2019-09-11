@@ -1,0 +1,85 @@
+package com.company;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        class Rectangle
+        {
+            public double ilgis;
+            public double plotis;
+            public double x;
+            public double y;
+            /*
+            public Rectangle(double Ilgis, double Plotis, double X, double Y)
+            {
+                ilgis = Ilgis;
+                plotis = Plotis;
+                x = X;
+                y = Y;
+            }
+            */
+            public double getPlotas() {
+                return ilgis*plotis; }
+
+            public double getPerimetras() {
+                return 2 * ilgis + 2 * plotis; }
+
+            public double getIstrizaine()
+            {
+                return Math.sqrt(ilgis * ilgis + plotis * plotis);
+            }
+
+            public double getKoordinateX()
+            {
+                return x + ilgis / 2;
+            }
+
+            public double getKoordinateY()
+            {
+                return y / 2;
+            }
+
+            public void setIlgis(double newIlgis){
+                this.ilgis = newIlgis; }
+
+            public void setPlotis(double newPlotis){
+                this.plotis = newPlotis; }
+
+            public void setX(double newX){
+                this.x = newX; }
+
+            public void setY(double newY){
+                this.y = newY; }
+
+        }
+
+        //Rectangle S1 = new Rectangle(2,4,0,4);
+
+        Rectangle S1 = new Rectangle();
+        S1.setIlgis(2);
+        S1.setPlotis(4);
+        S1.setX(0);
+        S1.setY(4);
+
+        System.out.format("Stačiakampio plotas: %.2f \n", S1.getPlotas());
+        System.out.format("Stačiakampio perimetras: %.2f \n", S1.getPerimetras());
+        System.out.format("Įstrižainės ilgis: %.2f \n", S1.getIstrizaine());
+        System.out.println("Stačiakampio įstrižainių susikirtimo taško koordinatė X:" + S1.getKoordinateX() + " Y:" + S1.getKoordinateY());
+
+        System.out.println();
+
+        //Rectangle S2 = new Rectangle(4,6,0,6);
+
+        Rectangle S2 = new Rectangle();
+        S2.setIlgis(4);
+        S2.setPlotis(6);
+        S2.setX(0);
+        S2.setY(6);
+
+        System.out.format("Stačiakampio plotas: %.2f \n", S2.getPlotas());
+        System.out.format("Stačiakampio perimetras: %.2f \n", S2.getPerimetras());
+        System.out.format("Įstrižainės ilgis: %.2f \n", S2.getIstrizaine());
+        System.out.println("Stačiakampio įstrižainių susikirtimo taško koordinatė X:" + S2.getKoordinateX() + " Y:" + S2.getKoordinateY());
+    }
+}
