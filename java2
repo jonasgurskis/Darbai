@@ -1,0 +1,60 @@
+package com.company;
+import java.util.Scanner;
+    class Duomenys
+    {
+        public String vardas;
+        public String pavarde;
+        public String grupe;
+        public String dalykas;
+        public double kreditai;
+        public double ivertinimas;
+
+        public Duomenys(String Vardas, String Pavarde, String Grupe, String Dalykas, double Kreditai, double Ivertinimas) {
+            vardas = Vardas;
+            pavarde = Pavarde;
+            grupe = Grupe;
+            dalykas = Dalykas;
+            kreditai = Kreditai;
+            ivertinimas = Ivertinimas;
+        }
+
+        public double getVidurkis() {
+            return kreditai / ivertinimas; }
+        public String getVardas() {
+            return vardas; }
+        public String getPavarde() {
+            return pavarde; }
+        public String getGrupe() {
+            return grupe; }
+        public String getDalykas() {
+            return dalykas; }
+        public double getKreditai() {
+            return kreditai; }
+        public double getIvertinimas() {
+            return ivertinimas; }
+
+        public static void main(String[] args)
+        {
+
+            Scanner scan = new Scanner(System.in);
+            System.out.print("Enter Student name: ");
+            String vardas = scan.next();
+            System.out.print("Enter Student lastname: ");
+            String pavarde = scan.next();
+            System.out.print("Enter Student group: ");
+            String grupe = scan.next();
+            System.out.print("Enter dalykas: ");
+            String dalykas = scan.next();
+            System.out.print("Enter Kretidu skaicius: ");
+            int kreditai = scan.nextInt();
+            System.out.print("Enter Ivertinimas: ");
+            int ivertinimas = scan.nextInt();
+
+        Duomenys D1 = new Duomenys(D1.vardas, D1.pavarde, D1.grupe, D1.dalykas, D1.kreditai, D1.ivertinimas);
+
+
+        System.out.println("Studento Vardas: " + D1.getVardas() + " Pavarde: " + D1.getPavarde() + " Grupe: " + D1.getGrupe() + " Dalykas: " + D1.getDalykas() + " Vidurkis: " + D1.getVidurkis());
+
+        Duomenys D2 = new Duomenys(D2.vardas, D2.pavarde, D2.grupe, D2.dalykas, D2.kreditai,D2.ivertinimas);
+        }
+    }
