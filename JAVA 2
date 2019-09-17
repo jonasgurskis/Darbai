@@ -59,6 +59,10 @@ public class Main {
             public int getEgzaminas() {
                 return egzaminas;
             }
+            
+            public void setDalykas(String dalykas) {
+            this.dalykas = new dalykas;}
+            
         }
         Scanner scan = new Scanner(System.in);
 
@@ -69,7 +73,13 @@ public class Main {
         System.out.print("Enter Student group: ");
         String grupe = scan.next();
         System.out.print("Enter dalykas: ");
+        int dalykuSkaicius = scan.nextInt();
+        for (int i = 1; i < dalykuSkaicius+1; i++) {
+        System.out.println("Dalykas #" + i + "Su Tiek ir tiek kreditu");
         String dalykas = scan.next();
+        S1.setDalykas(dalykas);
+        System.out.println("Dalyko #" + i + " Pavadinimas: " + S1.getDalykas());
+        
         System.out.print("Enter Kretidu skaicius: ");
         int kreditai = scan.nextInt();
         System.out.print("Enter kontrolinio ivertinimas: ");
