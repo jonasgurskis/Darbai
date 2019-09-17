@@ -93,3 +93,53 @@ public class Main {
         System.out.println("Studento Vardas: " + D1.getVardas() + " Pavarde: " + D1.getPavarde() + " Grupe: " + D1.getGrupe() + " Dalykas: " + D1.getDalykas() + " Vidurkis: " + D1.getVidurkis());
     }
 }
+
+
+
+
+--------------------------------------------------------------------
+
+package com.company;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        class Duomenys {
+            String Vardas;
+            String Pavarde;
+            String Grupe;
+            String Dalykas;
+            int Kreditai;
+            int Ivertinimas;
+            
+            public Duomenys (String vardas, String pavarde, String grupe, String dalykas, int kreditai, int ivertinimas){
+                Vardas = vardas;
+                Pavarde = pavarde;
+                Grupe = grupe;
+                Dalykas = dalykas;
+                Kreditai = kreditai;
+                Ivertinimas = ivertinimas;
+            }
+            public double getVidurkis() {
+                return Ivertinimas * 0.2 + Ivertinimas * 0.5 + Ivertinimas * 0.3;
+            }
+            public void setDalykas(String newDalykas) {
+                this.Dalykas = newDalykas;
+            }
+        }
+    
+    Scanner scan = new Scanner(System.in);
+    System.out.print("Vardas: ");
+    String vardas = scan.nextLine();
+    System.out.print("Pavarde: ");
+    String pavarde = scan.nextLine();
+    System.out.print("Grupe: ");
+    String grupe = scan.nextLine();
+    
+    System.out.print("Dalyku skaicius: ");
+    int skaicius = scan.nextInt();
+        for (int i = 1; i < skaicius; i++) {
+        System.out.print("Dalykas #" + i + " :");
+        String dalykas = scan.next();
+        }
+    }
+}
