@@ -1,145 +1,120 @@
 package com.company;
-        import java.util.Scanner;
-public class Main {
-
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main
+{
     public static void main(String[] args) {
-        class Duomenys {
-            public String vardas;
-            public String pavarde;
-            public String grupe;
-            public String dalykas;
-            public int kreditai;
-            public int kontrolinis;
-            public int praktinis;
-            public int egzaminas;
+        class Subject {
+            private String[] Subjects;
+            private String[][] Marks;
+            private int Credits;
 
-            public Duomenys(String Vardas, String Pavarde, String Grupe, String Dalykas, int Kreditai, int Kontrolinis, int Praktinis, int Egzaminas) {
-                vardas = Vardas;
-                pavarde = Pavarde;
-                grupe = Grupe;
-                dalykas = Dalykas;
-                kreditai = Kreditai;
-                kontrolinis = Kontrolinis;
-                praktinis = Praktinis;
-                egzaminas = Egzaminas;
+            public String[] getSubjects() {
+                return Subjects;
             }
 
-            public double getVidurkis() {
-                return kontrolinis * 0.2 + praktinis * 0.5 + egzaminas * 0.3;
+            public String[][] getMarks() {
+                return Marks;
             }
 
-            public String getVardas() {
-                return vardas;
+            public int getKredits() {
+                return Credits;
             }
 
-            public String getPavarde() {
-                return pavarde;
+            public void setSubjects(String[] newSubjects) {
+                this.Subjects = newSubjects;
             }
 
-            public String getGrupe() {
-                return grupe;
+            public void setMarks(String[][] newMarks) {
+                this.Marks = newMarks;
             }
 
-            public String getDalykas() {
-                return dalykas;
+            public void setKredits(int newCredits) {
+                this.Credits = newCredits;
             }
 
-            public int getKreditai() {
-                return kreditai;
+            private Subject(String[] subjects, String[][] marks, int credits) {
+                Subjects = subjects;
+                Marks = marks;
+                Credits = credits;
+            }
+        }//Subject
+
+        class Student {
+            private String Name;
+            private String Lastname;
+            private String Group;
+            private Subject Dalykas;
+
+            public String getName() {
+                return Name;
             }
 
-            public int getKontrolinis() {
-                return kontrolinis;
+            public String getLastname() {
+                return Lastname;
             }
 
-            public int getPraktinis() {
-                return praktinis;
+            public String getGroup() {
+                return Group;
             }
 
-            public int getEgzaminas() {
-                return egzaminas;
+            public void setName(String newName) {
+                this.Name = newName;
             }
-            
-            public void setDalykas(String dalykas) {
-            this.dalykas = new dalykas;}
-            
-        }
+
+            public void setLastname(String newLastname) {
+                this.Lastname = newLastname;
+            }
+
+            public void setGroup(String newGroup) {
+                this.Group = newGroup;
+            }
+
+            private Student(String name, String lastname, String group, String[] Subjects, String[][] marks, int credits) {
+                Name = name;
+                Lastname = lastname;
+                Group = group;
+                Dalykas = new Subject (Subjects, marks, credits);
+            }
+        }//Student
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("Enter Student name: ");
-        String vardas = scan.next();
-        System.out.print("Enter Student lastname: ");
-        String pavarde = scan.next();
-        System.out.print("Enter Student group: ");
-        String grupe = scan.next();
-        System.out.print("Enter dalykas: ");
-        int dalykuSkaicius = scan.nextInt();
-        for (int i = 1; i < dalykuSkaicius+1; i++) {
-        System.out.println("Dalykas #" + i + "Su Tiek ir tiek kreditu");
-        String dalykas = scan.next();
-        S1.setDalykas(dalykas);
-        System.out.println("Dalyko #" + i + " Pavadinimas: " + S1.getDalykas());
-        
-        System.out.print("Enter Kretidu skaicius: ");
-        int kreditai = scan.nextInt();
-        System.out.print("Enter kontrolinio ivertinimas: ");
-        int kontrolinis = scan.nextInt();
-        System.out.print("Enter praktinio ivertinimas: ");
-        int praktinis = scan.nextInt();
-        System.out.print("Enter egzamino ivertinimas: ");
-        int egzaminas = scan.nextInt();
+        /////////////////////////////////////////////////////////////////////
+        //                  STUDENTS
+        System.out.print("Student Name: ");
+        String SName = scan.next();
 
-        Duomenys D1 = new Duomenys(vardas, pavarde, grupe, dalykas, kreditai, kontrolinis, praktinis, egzaminas);
-        System.out.println("Studento Vardas: " + D1.getVardas() + " Pavarde: " + D1.getPavarde() + " Grupe: " + D1.getGrupe() + " Dalykas: " + D1.getDalykas() + " Vidurkis: " + D1.getVidurkis());
-    }
-}
+        System.out.print("Student Lastname: ");
+        String SLastname = scan.next();
 
+        System.out.print("Student Group: ");
+        String SGroup = scan.next();
+        /////////////////////////////////////////////////////////////////////
+        //                  SUBJECTS
+        System.out.print("How many subjects: ");
+        int SubNumber = scan.nextInt();
+        String[] SSubjects = new String[SubNumber];
+        String[][] SMarks = new String[0][0];
+        for (int i = 0; i < SubNumber; i++)
+        {
+            System.out.print("Student Subject #" + i + " :");
+            SSubjects[i] = scan.next();
+            System.out.print("How many Marks: ");
+            int StudMarks = scan.nextInt();
+            SMarks = new String[SubNumber][StudMarks];
+            for (int j = 0; j < StudMarks; j++)
+            {
+                System.out.print(SSubjects[i] + " Mark #" + j + " :");
+                SMarks[i][j] = scan.next();
 
+            }//Mark loop
+        }//Subjects loop
 
+        System.out.print("Student Credits: ");
+        int SCredits = scan.nextInt();
+        /////////////////////////////////////////////////////////////////////
 
---------------------------------------------------------------------
-
-package com.company;
-import java.util.Scanner;
-public class Main {
-    public static void main(String[] args) {
-        class Duomenys {
-            String Vardas;
-            String Pavarde;
-            String Grupe;
-            String Dalykas;
-            int Kreditai;
-            int Ivertinimas;
-            
-            public Duomenys (String vardas, String pavarde, String grupe, String dalykas, int kreditai, int ivertinimas){
-                Vardas = vardas;
-                Pavarde = pavarde;
-                Grupe = grupe;
-                Dalykas = dalykas;
-                Kreditai = kreditai;
-                Ivertinimas = ivertinimas;
-            }
-            public double getVidurkis() {
-                return Ivertinimas * 0.2 + Ivertinimas * 0.5 + Ivertinimas * 0.3;
-            }
-            public void setDalykas(String newDalykas) {
-                this.Dalykas = newDalykas;
-            }
-        }
-    
-    Scanner scan = new Scanner(System.in);
-    System.out.print("Vardas: ");
-    String vardas = scan.nextLine();
-    System.out.print("Pavarde: ");
-    String pavarde = scan.nextLine();
-    System.out.print("Grupe: ");
-    String grupe = scan.nextLine();
-    
-    System.out.print("Dalyku skaicius: ");
-    int skaicius = scan.nextInt();
-        for (int i = 1; i < skaicius; i++) {
-        System.out.print("Dalykas #" + i + " :");
-        String dalykas = scan.next();
-        }
-    }
-}
+        Student S1 = new Student(SName, SLastname, SGroup, SSubjects, SMarks, SCredits);
+        System.out.print("Student Name: " + S1.Name + " Lastname: " + S1.Lastname + " Group: " + S1.Group + " Students subjects: " + Arrays.toString(S1.Dalykas.Subjects) + " Marks: " + Arrays.deepToString(S1.Dalykas.Marks) + " Credits: " + S1.Dalykas.Credits);
+    }//main
+}//Main
