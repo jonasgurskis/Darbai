@@ -6,14 +6,14 @@ public class Main
     public static void main(String[] args) {
         class Subject {
             private String[] Subjects;
-            private String[][] Marks;
+            private String Marks;
             private int Credits;
 
             public String[] getSubjects() {
                 return Subjects;
             }
 
-            public String[][] getMarks() {
+            public String getMarks() {
                 return Marks;
             }
 
@@ -25,7 +25,7 @@ public class Main
                 this.Subjects = newSubjects;
             }
 
-            public void setMarks(String[][] newMarks) {
+            public void setMarks(String newMarks) {
                 this.Marks = newMarks;
             }
 
@@ -33,7 +33,7 @@ public class Main
                 this.Credits = newCredits;
             }
 
-            private Subject(String[] subjects, String[][] marks, int credits) {
+            private Subject(String[] subjects, String marks, int credits) {
                 Subjects = subjects;
                 Marks = marks;
                 Credits = credits;
@@ -70,7 +70,7 @@ public class Main
                 this.Group = newGroup;
             }
 
-            private Student(String name, String lastname, String group, String[] Subjects, String[][] marks, int credits) {
+            private Student(String name, String lastname, String group, String[] Subjects, String marks, int credits) {
                 Name = name;
                 Lastname = lastname;
                 Group = group;
@@ -91,30 +91,32 @@ public class Main
         String SGroup = scan.next();
         /////////////////////////////////////////////////////////////////////
         //                  SUBJECTS
+        String result = "";
         System.out.print("How many subjects: ");
         int SubNumber = scan.nextInt();
         String[] SSubjects = new String[SubNumber];
-        String[][] SMarks = new String[0][0];
+        int[][] SMarks = new int[0][0];
         for (int i = 0; i < SubNumber; i++)
         {
+            result = result + "[ ";
             System.out.print("Student Subject #" + i + " :");
             SSubjects[i] = scan.next();
             System.out.print("How many Marks: ");
             int StudMarks = scan.nextInt();
-            SMarks = new String[SubNumber][StudMarks];
+            SMarks = new int[SubNumber][StudMarks];
             for (int j = 0; j < StudMarks; j++)
             {
                 System.out.print(SSubjects[i] + " Mark #" + j + " :");
-                SMarks[i][j] = scan.next();
-
+                SMarks[i][j] = scan.nextInt();
+                result = result + SMarks[i][j]+", ";
             }//Mark loop
+            result = result + "] ";
         }//Subjects loop
-
         System.out.print("Student Credits: ");
         int SCredits = scan.nextInt();
         /////////////////////////////////////////////////////////////////////
-
-        Student S1 = new Student(SName, SLastname, SGroup, SSubjects, SMarks, SCredits);
-        System.out.print("Student Name: " + S1.Name + " Lastname: " + S1.Lastname + " Group: " + S1.Group + " Students subjects: " + Arrays.toString(S1.Dalykas.Subjects) + " Marks: " + Arrays.deepToString(S1.Dalykas.Marks) + " Credits: " + S1.Dalykas.Credits);
+        //     Arrays.deepToString(S1.Dalykas.Marks)
+        Student S1 = new Student(SName, SLastname, SGroup, SSubjects, result, SCredits);
+        System.out.print("Student Name: " + S1.Name + " Lastname: " + S1.Lastname + " Group: " + S1.Group + " Students subjects: " + Arrays.toString(S1.Dalykas.Subjects) + " Marks: " + S1.Dalykas.Marks + " Credits: " + S1.Dalykas.Credits + " Students Average: ");
     }//main
 }//Main
