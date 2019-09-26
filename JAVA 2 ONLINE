@@ -1,0 +1,92 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		class Subject {
+            private String[] Subjects;
+            private String Marks;
+            private int Credits;
+            private double Average;
+            private double getAverage() {
+                return Average/Credits;
+            }
+            private Subject(String[] subjects, String marks, int credits, double average) {
+                Subjects = subjects;
+                Marks = marks;
+                Credits = credits;
+                Average = average;
+            }
+        }//Subject
+        class Student {
+            private String Name;
+            private String Lastname;
+            private String Group;
+            private Subject Dalykas;
+            private Student(String name, String lastname, String group, String[] Subjects, String marks, int credits, double average) {
+                Name = name;
+                Lastname = lastname;
+                Group = group;
+                Dalykas = new Subject (Subjects, marks, credits, average);
+            }
+        }//Student
+        Scanner scan = new Scanner(System.in);
+        /////////////////////////////////////////////////////////////////////
+        //                  STUDENTS
+        System.out.print("Student Name: ");
+        String SName = scan.next();
+        System.out.print("Student Lastname: ");
+        String SLastname = scan.next();
+        System.out.print("Student Group: ");
+        String SGroup = scan.next();
+        /////////////////////////////////////////////////////////////////////
+        //                  SUBJECTS
+        String result = "";
+        System.out.print("How many subjects: ");
+        int SubNumber = scan.nextInt();
+        String[] SSubjects = new String[SubNumber];
+        int[][] SMarks = new int[0][0];
+        for (int i = 0; i < SubNumber; i++)
+        {
+            result = result + "[ ";
+            System.out.print("Student Subject #" + i + " :");
+            SSubjects[i] = scan.next();
+            System.out.print("How many Marks: ");
+            int StudMarks = scan.nextInt();
+            SMarks = new int[SubNumber][StudMarks];
+            for (int j = 0; j < StudMarks; j++)
+            {
+                System.out.print(SSubjects[i] + " Mark #" + j + " :");
+                SMarks[i][j] = scan.nextInt();
+                result = result + SMarks[i][j]+", ";
+            }//Mark loop
+            result = result + "] ";
+        }//Subjects loop
+        /////////////////////////////////////////////////////////////////////
+        //              AVERAGE CALC
+        int str = result.length();
+        double rezultatas = 0;
+        //str = str.replaceAll("\\D+","");
+        for (int k = 0; k < str; k++) {
+            Character character = result.charAt(k);
+            if (Character.isDigit(character)) {
+                rezultatas += Character.getNumericValue(character);
+            }
+        }
+        //System.out.println("STRINGAS: " + result);
+        //System.out.println("SUMA: " + rezultatas);
+        System.out.print("Student Credits: ");
+        int SCredits = scan.nextInt();
+        //     Arrays.deepToString(S1.Dalykas.Marks)
+        Student S1 = new Student(SName, SLastname, SGroup, SSubjects, result, SCredits, rezultatas);
+        System.out.print("Student Name: " + S1.Name + " Lastname: " + S1.Lastname + " Group: " + S1.Group + " Students subjects: " + Arrays.toString(S1.Dalykas.Subjects) + " Marks: " + S1.Dalykas.Marks + " Credits: " + S1.Dalykas.Credits + " Students Average: " + S1.Dalykas.getAverage());
+	}
+}
