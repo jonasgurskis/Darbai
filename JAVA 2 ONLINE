@@ -1,9 +1,10 @@
 import java.util.Arrays;
 import java.util.Scanner;
-public class Main {
-    public static void main (String[] argss) {
 
-class Subject {
+public class Main
+{
+public static void main (String[] argss) {
+    class Subject {
     private String[] Subject;
     private String Marks;
     private double Credits;
@@ -13,7 +14,7 @@ class Subject {
         Subject = subject;
         Marks = marks;
         Credits = credits;
-    }
+    } 
 
     public String[] getSubject() {
         return Subject;
@@ -51,11 +52,6 @@ class Subject {
         return Average / Credits;
     }
 }
-
-
-
-
-        
 class Student {
     private String Name;
     private String Lastname;
@@ -86,8 +82,6 @@ class Student {
         Group = newGroup;
     }
 }
-
-
         Scanner scan = new Scanner(System.in);
 
         Student S1 = new Student("None","none", "none", new String[]{"none","None"},"10", 10);
