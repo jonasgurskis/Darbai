@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class Subject {
     private String[] Subject;
     private String Marks;
@@ -47,6 +46,3 @@ public class Subject {
         return Average / Credits;
     }
 }
-
-
-
