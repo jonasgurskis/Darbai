@@ -3,35 +3,35 @@ public class Main {
 
         Funkcija F1 = new Funkcija();
 
-        double x0=3;
-        double x1=4;
-        double err=0.04;
-        double x2;
+        double x=0; //x0
+        double y=1; //x1
+        double err=0.001;
+        double midpoint; //x2
         int BandymuNr = 1;
         boolean Susikirtimas = false;
-        F1.getFormule(x1);
+        F1.getFormule(y);
 
         do{
 
-            x2 = (x0 +x1)/2;
-            if( F1.getFormule(x0) *  F1.getFormule(x2) < 0){
+            midpoint = (x +y)/2;
+            if( F1.getFormule(x) *  F1.getFormule(midpoint) < 0){
                 //if true, = susikirtimas
-                x1 = x2;
+                y = midpoint;
             }
             else{
-                x0 = x2;
+                x = midpoint;
             }
             // ivertinama funkcija su nauju vidurio tasku, ir ar jis mazesnis arba lygus err
-            Susikirtimas = Math.abs( F1.getFormule(x2)) <= err;
+            Susikirtimas = Math.abs( F1.getFormule(midpoint)) <= err;
 
             System.out.println("Bandymas #" + BandymuNr++);
-            System.out.println("x1 = " + x1);
-            System.out.println("x2(midpoint) = " + x2);
-            System.out.println("F(x2) = " + Math.abs( F1.getFormule(x2)));
+            System.out.println("x1 = " + y);
+            System.out.println("x2(midpoint) = " + midpoint);
+            System.out.println("F(x2) = " + Math.abs( F1.getFormule(midpoint)));
             System.out.println("");
         } while(!Susikirtimas);
-          
-        System.out.println("Root: " + x2);
-        
+
+        System.out.println("Root: " + midpoint);
+
     }//PSVM
 }//Main
