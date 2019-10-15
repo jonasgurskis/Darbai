@@ -30,5 +30,8 @@ public class Main {
             System.out.println("F(x2) = " + Math.abs( F1.getFormule(x2)));
             System.out.println("");
         } while(!Susikirtimas);
+          
+        System.out.println("Root: " + x2);
+        
     }//PSVM
 }//Main
