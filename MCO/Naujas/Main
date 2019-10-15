@@ -1,0 +1,24 @@
+public class Main {
+    public static void main(String[] args) {
+
+        Funkcija F1 = new Funkcija();
+
+        double x=3; //initial guess
+        double y=0; //x1
+        double err=0.00001;
+
+        boolean Susikirtimas = false;
+        F1.getFormule2(y);
+
+        do{
+            y = x - F1.getFormule1(x) / F1.getFormule2(x);
+            x = y;
+            Susikirtimas = Math.abs(F1.getFormule1(y)) <= err;
+
+            System.out.println("x1 = " + y + " " + x);
+
+        } while(!Susikirtimas);
+
+        System.out.println("Root is: " + y);
+    }
+}
