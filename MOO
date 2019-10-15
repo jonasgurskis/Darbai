@@ -47,3 +47,102 @@ int main()
     
 }
 
+// Example program
+#include <iostream>
+#include <string>
+
+#define E 2.71828182845904523536;
+
+double f(double x) {
+    
+    f = x => pow(E, -2*x)+2*pow(x,2)-2;
+    }
+
+void half_cut_method () {
+
+double x0, x1, err, x2;
+int iterator = 1;
+bool conversion = false;
+
+do {
+x2 = (x0 + x1)/2;
+if(f(x0) * f(x2) <0) {
+    //if true, reached negative.
+x1 =x2;
+}
+else {
+x0 = x2;
+}
+// iteration display
+conversion = abs(f(x2)) <= err;
+std::Cout << "n = " << iterator++;
+std::cout << "x0  = " << x0;
+std::cout << "x1 = " << x1;
+std::cout << "x2(midpoint) = " x2;
+std::cout << "F(x2) = " << abs(f(x2)) << std::endl;
+}while(!conversion)
+
+if (conversion) {
+    return x2;
+}else{
+    // if not converted
+    return null;
+}
+
+int main()
+{
+    
+    
+    
+}
+
+// Example program
+#include <iostream>
+#include <string>
+
+#define E 2.71828182845904523536;
+
+double f(double x) {
+    
+    f = x => pow(E, -2*x)+2*pow(x,2)-2;
+    }
+
+void half_cut_method () {
+
+double x0, x1, err, x2;
+int iterator = 1;
+bool conversion = false;
+
+do {
+x2 = (x0 + x1)/2;
+if(f(x0) * f(x2) <0) {
+    //if true, reached negative.
+x1 =x2;
+}
+else {
+x0 = x2;
+}
+// iteration display
+conversion = abs(f(x2)) <= err;
+std::Cout << "n = " << iterator++;
+std::cout << "x0  = " << x0;
+std::cout << "x1 = " << x1;
+std::cout << "x2(midpoint) = " x2;
+std::cout << "F(x2) = " << abs(f(x2)) << std::endl;
+}while(!conversion)
+
+if (conversion) {
+    return x2;
+}else{
+    // if not converted
+    return null;
+}
+
+int main()
+{
+    
+    
+    
+}
+
+https://github.com/crowjambo/MOO_numerical_algo/blob/master/TASK3_Half_cut_bisection/Program.cs
