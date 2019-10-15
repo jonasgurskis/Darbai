@@ -1,0 +1,34 @@
+public class Main {
+    public static void main(String[] args) {
+
+        Funkcija F1 = new Funkcija();
+
+        double x0=3;
+        double x1=4;
+        double err=0.04;
+        double x2;
+        int BandymuNr = 1;
+        boolean Susikirtimas = false;
+        F1.getFormule(x1);
+
+        do{
+
+            x2 = (x0 +x1)/2;
+            if( F1.getFormule(x0) *  F1.getFormule(x2) < 0){
+                //if true, = susikirtimas
+                x1 = x2;
+            }
+            else{
+                x0 = x2;
+            }
+            // ivertinama funkcija su nauju vidurio tasku, ir ar jis mazesnis arba lygus err
+            Susikirtimas = Math.abs( F1.getFormule(x2)) <= err;
+
+            System.out.println("Bandymas #" + BandymuNr++);
+            System.out.println("x1 = " + x1);
+            System.out.println("x2(midpoint) = " + x2);
+            System.out.println("F(x2) = " + Math.abs( F1.getFormule(x2)));
+            System.out.println("");
+        } while(!Susikirtimas);
+    }//PSVM
+}//Main
