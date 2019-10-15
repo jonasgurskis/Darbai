@@ -1,0 +1,8 @@
+public class Funkcija {
+
+    double Formule;
+
+    public double getFormule (double SKAICIUS) {
+        return Formule = Math.pow(Math.E,-2*SKAICIUS)+2*Math.pow(SKAICIUS,2)-2;
+    }
+}
