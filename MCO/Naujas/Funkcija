@@ -1,0 +1,13 @@
+public class Funkcija {
+
+    double Formule;
+    double Formule2;
+
+    public double getFormule1 (double SKAICIUS) {
+        return Formule = SKAICIUS = Math.pow(SKAICIUS, 3) - SKAICIUS - 0.231;
+    }
+
+    public double getFormule2 (double SKAICIUS) {
+        return Formule2 = SKAICIUS = 3 * Math.pow(SKAICIUS, 2) - 1;
+    }
+}
