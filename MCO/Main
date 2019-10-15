@@ -31,8 +31,6 @@ public class Main {
             System.out.println("F(x2) = " + Math.abs( F1.getFormule(midpoint)));
             System.out.println("");
         } while(!Susikirtimas);
-
         System.out.println("Root: " + midpoint);
-
-    }//PSVM
-}//Main
+    }
+}
