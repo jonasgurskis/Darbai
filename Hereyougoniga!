@@ -1,0 +1,54 @@
+public static void search(String direktorija, String File_name)
+    {
+        File dir = new File(direktorija);
+        FilenameFilter filter = new FilenameFilter() {
+            public boolean accept (File dir, String name) {
+                return name.endsWith(File_name);
+            }
+        };
+        String[] children = dir.list(filter);
+        if (children == null) {
+            System.out.println("Either dir does not exist or is not a directory");
+        } else {
+            for (int i = 0; i< children.length; i++) {
+                String filename = children[i];
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(filename);
+            }
+            System.out.print("Done.");
+            System.exit(1);
+        }
+    }
+
+///////////////////////////
+
+ public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        // what dir will use?
+        System.out.println("Direktorija: C:\\Users\\PC\\Desktop");
+        String direktorija = scanner.nextLine();
+
+        // Number of files in directory
+        File directory=new File(direktorija);
+        double fileCount= Objects.requireNonNull(directory.list()).length;
+        System.out.println("File Count:"+fileCount);
+
+        //what files are we looking for?
+        System.out.println("File: .png");
+        String file_type = scanner.nextLine();
+
+        //Progresss bar
+        Main PB = new Main();
+        PB.setVisible(true);
+        PB.update(fileCount);
+
+        // search for the file
+        search(direktorija, file_type);
+    }
+}
